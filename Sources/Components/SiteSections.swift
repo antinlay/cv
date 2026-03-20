@@ -31,7 +31,7 @@ struct TopBar: HTML {
                             .class("top-link")
                     }
                     ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Контакт" : "Contact" }
+                        Tag("a") { language == .ru ? "Контакты" : "Contacts" }
                             .attribute("href", "#contact")
                             .attribute("data-lang", language.rawValue)
                             .class("top-link")
@@ -40,7 +40,6 @@ struct TopBar: HTML {
                 .class("top-nav")
 
                 Tag("div") {
-                    LengthToggle(className: "state-group state-group-compact")
                     LanguageToggle(className: "state-group state-group-compact")
                 }
                 .class("top-controls")
@@ -321,7 +320,7 @@ struct ContactSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Контакт", en: "Contact"), classNames: ["section-eyebrow"])
+                LocalizedTextBlock("span", content: .init(ru: "Контакты", en: "Contacts"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
@@ -365,14 +364,20 @@ struct ContactSection: HTML {
 struct ResumeSidebar: HTML {
     var body: some HTML {
         Tag("aside") {
-            Tag("img")
-                .attribute("src", SitePaths.avatar)
-                .attribute("alt", "Portrait of Alexander Lyakhevich")
-                .class("resume-photo")
+            Tag("section") {
+                Tag("img")
+                    .attribute("src", SitePaths.avatar)
+                    .attribute("alt", "Portrait of Alexander Lyakhevich")
+                    .class("resume-photo")
 
-            LocalizedTextBlock("h1", content: SiteContent.profile.name, classNames: ["resume-name"])
-            LocalizedTextBlock("p", content: SiteContent.profile.role, classNames: ["resume-role"])
-            LocalizedVariantTextBlock("p", content: SiteContent.profile.intro, classNames: ["resume-summary"])
+                Tag("div") {
+                    LocalizedTextBlock("h1", content: SiteContent.profile.name, classNames: ["resume-name"])
+                    LocalizedTextBlock("p", content: SiteContent.profile.role, classNames: ["resume-role"])
+                    LocalizedVariantTextBlock("p", content: SiteContent.profile.intro, classNames: ["resume-summary"])
+                }
+                .class("resume-intro-copy")
+            }
+            .class("resume-panel", "resume-intro-panel")
 
             Tag("section") {
                 LocalizedTextBlock("h2", content: .init(ru: "Контакты", en: "Contacts"), classNames: ["resume-section-title"])

@@ -27,41 +27,9 @@ struct LanguageToggle: HTML {
     }
 }
 
-struct LengthToggle: HTML {
-    let className: String
-
-    init(className: String = "state-group") {
-        self.className = className
-    }
-
-    var body: some HTML {
-        Tag("div") {
-            ToggleButton(
-                set: "length",
-                value: "short",
-                defaultLabel: "Коротко",
-                ruLabel: "Коротко",
-                enLabel: "Short"
-            )
-            ToggleButton(
-                set: "length",
-                value: "full",
-                defaultLabel: "Полно",
-                ruLabel: "Полно",
-                enLabel: "Full"
-            )
-        }
-        .class(className)
-        .attribute("role", "group")
-        .attribute("aria-label", "Length")
-    }
-}
-
 struct ResumeToolbar: HTML {
     var body: some HTML {
         Tag("div") {
-            LengthToggle()
-            Tag("div").class("toolbar-divider")
             Tag("button") {
                 "В PDF"
             }

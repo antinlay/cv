@@ -18,7 +18,6 @@ struct MainLayout: Layout {
             }
             .ignorePageGutters()
             .data("lang", "ru")
-            .data("length", "full")
             .customAttribute(name: "class", value: "cv-body")
         }
     }

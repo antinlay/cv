@@ -36,14 +36,11 @@ struct LocalizedVariantTextBlock: HTML {
 
     var body: some HTML {
         ForEach(CVLanguage.allCases) { language in
-            ForEach(CVLength.allCases) { length in
-                Tag(tag) {
-                    content.value(for: language).value(for: length)
-                }
-                .attribute("data-lang", language.rawValue)
-                .attribute("data-length", length.rawValue)
-                .class(classNames)
+            Tag(tag) {
+                content.value(for: language).full
             }
+            .attribute("data-lang", language.rawValue)
+            .class(classNames)
         }
     }
 }
@@ -83,18 +80,15 @@ struct LocalizedVariantListBlock: HTML {
 
     var body: some HTML {
         ForEach(CVLanguage.allCases) { language in
-            ForEach(CVLength.allCases) { length in
-                Tag("ul") {
-                    ForEach(items.value(for: language).value(for: length)) { item in
-                        Tag("li") {
-                            item
-                        }
+            Tag("ul") {
+                ForEach(items.value(for: language).full) { item in
+                    Tag("li") {
+                        item
                     }
                 }
-                .attribute("data-lang", language.rawValue)
-                .attribute("data-length", length.rawValue)
-                .class(classNames)
             }
+            .attribute("data-lang", language.rawValue)
+            .class(classNames)
         }
     }
 }
