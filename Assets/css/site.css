@@ -730,6 +730,37 @@ body[data-lang="en"] [data-lang="ru"] {
     padding: 10px;
   }
 
+  .topbar-inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .top-nav {
+    display: none;
+  }
+
+  .top-controls {
+    justify-content: flex-end;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .top-controls .state-group {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .top-controls .state-button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
   .topbar-inner,
   .hero-section,
   .content-section,
