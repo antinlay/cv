@@ -55,8 +55,8 @@ struct CVWebsite {
 
 struct PortfolioSite: Site {
     var name = "Alexander Lyakhevich"
-    var titleSuffix = " - iOS Developer"
-    var description = "Swift-first portfolio and resume for Alexander Lyakhevich, iOS developer focused on product engineering."
+    var titleSuffix = " - iOS Architecture & SwiftUI Audit"
+    var description = "iOS architecture and SwiftUI audit consulting for startups and mobile teams: repo review, risk report, performance fixes, and Codex-ready fix plans."
     var language: Language = .russian
     var url = URL(static: "https://antinlay.github.io/cv/")
     var useDefaultBootstrapURLs: BootstrapOptions = .none

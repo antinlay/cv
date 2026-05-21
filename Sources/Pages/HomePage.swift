@@ -11,6 +11,7 @@ struct HomePage: StaticPage {
             TopBar()
             Tag("main") {
                 HeroSection()
+                ServicesSection()
                 SelectedWorkSection()
                 ExperienceTimelineSection()
                 StackSection()

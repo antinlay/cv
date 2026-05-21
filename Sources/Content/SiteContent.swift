@@ -78,6 +78,12 @@ struct SkillGroup: Sendable {
     let items: [String]
 }
 
+struct ServiceOffering: Sendable {
+    let title: Localized<String>
+    let summary: Localized<String>
+    let points: Localized<[String]>
+}
+
 struct EducationEntry: Sendable {
     let title: Localized<String>
     let note: Localized<String>
@@ -86,7 +92,7 @@ struct EducationEntry: Sendable {
 enum SitePaths {
     static let base = "/cv"
     static let resume = "\(base)/resume/"
-    static let avatar = "\(base)/images/avatar.png"
+    static let avatar = "\(base)/images/avatar.jpg?v=20260521"
 }
 
 enum SiteContent {
@@ -96,26 +102,26 @@ enum SiteContent {
             en: "Alexander Lyakhevich"
         ),
         role: .init(
-            ru: "iOS разработчик",
-            en: "iOS Developer"
+            ru: "iOS Architecture & SwiftUI Audit Consultant",
+            en: "iOS Architecture & SwiftUI Audit Consultant"
         ),
         location: .init(
-            ru: "UTC+3, открыт к удаленной работе и сильным продуктовым командам.",
-            en: "UTC+3, open to remote work and strong product teams."
+            ru: "Александр Ляхевич. UTC+3, открыт к удаленным аудитам, спринтам и продуктовым командам.",
+            en: "Alexander Lyakhevich. UTC+3, open to remote audits, fix sprints, and product teams."
         ),
         intro: .init(
             ru: .init(
-                short: "Делаю iOS-продукты с сильной инженерной базой: SwiftUI + UIKit, офлайн, auth, real-time и релизная дисциплина.",
-                full: "Делаю iOS-продукты с сильной инженерной базой: SwiftUI + UIKit, офлайн-стратегии, auth/refresh, real-time, модульная архитектура и релизная дисциплина. Комфортно двигаюсь от нуля до App Store и так же уверенно разбираю legacy."
+                short: "Нахожу и помогаю исправлять SwiftUI navigation/state/API баги до production: repo audit, risk report и план фиксов для Codex.",
+                full: "Нахожу и помогаю исправлять SwiftUI navigation/state/API баги до production: repo audit, архитектурный разбор, performance risks, risk report и план фиксов для Codex. Комфортно двигаюсь от сложного legacy до MVP и App Store delivery."
             ),
             en: .init(
-                short: "I build iOS products with strong engineering fundamentals: SwiftUI + UIKit, offline, auth, real-time, and release discipline.",
-                full: "I build iOS products with strong engineering fundamentals: SwiftUI + UIKit, offline strategies, auth/refresh flows, real-time features, modular architecture, and reliable release processes. Comfortable both from zero to App Store and in legacy-heavy codebases."
+                short: "I find and help fix SwiftUI navigation, state, and API bugs before production: repo audit, risk report, and Codex-ready fix plan.",
+                full: "I find and help fix SwiftUI navigation, state, and API bugs before production: repo audit, architecture review, performance risks, risk report, and Codex-ready fix plan. Comfortable from complex legacy codebases to MVP and App Store delivery."
             )
         ),
         statement: .init(
-            ru: "Swift-first портфолио, которое статически собирается и бесплатно деплоится на GitHub Pages.",
-            en: "Swift-first portfolio generated as a static site and deployable for free on GitHub Pages."
+            ru: "Приглашайте на аудит iOS-проекта, performance sprint или MVP, где важны архитектура, скорость и аккуратная поставка.",
+            en: "Bring me in for an iOS project audit, performance sprint, or MVP where architecture, velocity, and careful delivery matter."
         )
     )
 
@@ -124,6 +130,75 @@ enum SiteContent {
         .init(label: .init(ru: "Telegram", en: "Telegram"), value: "t.me/lyabowski", href: "https://t.me/lyabowski"),
         .init(label: .init(ru: "Часовой пояс", en: "Time zone"), value: "UTC+3 (Moscow)", href: nil),
         .init(label: .init(ru: "English", en: "English"), value: "B1", href: nil)
+    ]
+
+    static let services: [ServiceOffering] = [
+        .init(
+            title: .init(
+                ru: "iOS Architecture Audit",
+                en: "iOS Architecture Audit"
+            ),
+            summary: .init(
+                ru: "Быстрый разбор проекта для команд, которым нужно понять архитектурные, navigation/state и API-риски до релиза.",
+                en: "A focused project review for teams that need to see architecture, navigation/state, and API risks before release."
+            ),
+            points: .init(
+                ru: [
+                    "Repo review: структура, модули, состояние, навигация",
+                    "Async/await, API layer, payload mapping и рискованные сценарии",
+                    "Risk report и план фиксов для Codex и команды"
+                ],
+                en: [
+                    "Repo review: structure, modules, state, and navigation",
+                    "Async/await, API layer, payload mapping, and risky flows",
+                    "Risk report and Codex-ready fix plan for the team"
+                ]
+            )
+        ),
+        .init(
+            title: .init(
+                ru: "SwiftUI Performance Fix Sprint",
+                en: "SwiftUI Performance Fix Sprint"
+            ),
+            summary: .init(
+                ru: "Спринт для сложных экранов, где лаги, тяжелые списки, календари или лишние обновления мешают продукту.",
+                en: "A sprint for complex screens where lag, heavy lists, calendars, or unnecessary updates slow the product down."
+            ),
+            points: .init(
+                ru: [
+                    "Профилирование и поиск реальных узких мест",
+                    "Оптимизация списков, календарей и сложных SwiftUI экранов",
+                    "Измеримые фиксы и PR-ready изменения"
+                ],
+                en: [
+                    "Profiling and finding real bottlenecks",
+                    "Optimizing lists, calendars, and complex SwiftUI screens",
+                    "Measurable fixes and PR-ready changes"
+                ]
+            )
+        ),
+        .init(
+            title: .init(
+                ru: "AI-assisted iOS MVP Build",
+                en: "AI-assisted iOS MVP Build"
+            ),
+            summary: .init(
+                ru: "MVP для стартапов, которым нужна быстрая, но поддерживаемая iOS-поставка с понятным workflow.",
+                en: "An MVP track for startups that need fast, maintainable iOS delivery with a clear workflow."
+            ),
+            points: .init(
+                ru: [
+                    "SwiftUI MVP, API integration и базовая архитектура",
+                    "TestFlight, App Store readiness и release checklist",
+                    "AI-assisted delivery workflow без потери инженерного контроля"
+                ],
+                en: [
+                    "SwiftUI MVP, API integration, and baseline architecture",
+                    "TestFlight, App Store readiness, and release checklist",
+                    "AI-assisted delivery workflow without losing engineering control"
+                ]
+            )
+        )
     ]
 
     static let projects: [ProjectCard] = [
@@ -529,19 +604,19 @@ enum SiteContent {
     static let skills: [SkillGroup] = [
         .init(
             title: .init(ru: "Product engineering", en: "Product engineering"),
-            items: ["Swift", "SwiftUI", "UIKit", "Swift Concurrency", "Combine"]
+            items: ["Swift", "SwiftUI", "UIKit", "Swift Concurrency", "AI-assisted delivery"]
         ),
         .init(
             title: .init(ru: "Networking & data", en: "Networking & data"),
-            items: ["REST", "WebSocket", "Multipart", "SwiftData", "CoreData", "Offline-first"]
+            items: ["REST", "WebSocket", "Multipart", "API payload audit", "SwiftData", "Offline-first"]
         ),
         .init(
-            title: .init(ru: "Architecture", en: "Architecture"),
-            items: ["SwiftPM", "Feature modules", "Coordinators", "DI", "Keychain", "Sign in with Apple"]
+            title: .init(ru: "Architecture & audit", en: "Architecture & audit"),
+            items: ["Repo audit", "SwiftUI state/navigation", "Feature modules", "Coordinators", "DI", "Risk reports"]
         ),
         .init(
             title: .init(ru: "Delivery", en: "Delivery"),
-            items: ["App Store release", "Fastlane", "Firebase Messaging", "AppMetrica", "XCTest", "Swift Testing"]
+            items: ["Performance profiling", "Codex-ready fix plans", "App Store release", "TestFlight", "XCTest", "Swift Testing"]
         )
     ]
 
