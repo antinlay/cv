@@ -9,6 +9,7 @@ struct TopBar: HTML {
                     "AL"
                 }
                 .attribute("href", "#top")
+                .attribute("aria-label", "Back to top")
                 .class("brand-mark")
 
                 Tag("nav") {
@@ -38,6 +39,7 @@ struct TopBar: HTML {
                     }
                 }
                 .class("top-nav")
+                .attribute("aria-label", "Primary navigation")
 
                 Tag("div") {
                     LanguageToggle(className: "state-group state-group-compact")
