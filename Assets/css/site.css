@@ -71,6 +71,10 @@ body[data-lang="en"] [data-lang="ru"] {
   display: none !important;
 }
 
+main [id] {
+  scroll-margin-top: 104px;
+}
+
 .portfolio-page,
 .resume-page {
   position: relative;
@@ -156,6 +160,12 @@ body[data-lang="en"] [data-lang="ru"] {
 .top-link:hover {
   background: var(--accent-soft);
   color: var(--accent);
+}
+
+.top-link.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(32, 87, 73, 0.12);
 }
 
 .state-group {
@@ -509,6 +519,38 @@ body[data-lang="en"] [data-lang="ru"] {
   background: var(--accent);
 }
 
+.card-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-meta-item {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(243, 237, 227, 0.68);
+  border: 1px solid rgba(67, 53, 36, 0.1);
+}
+
+.card-meta-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-meta-value {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .tech-pills,
 .skill-cloud {
   display: flex;
@@ -626,6 +668,71 @@ body[data-lang="en"] [data-lang="ru"] {
 .contact-section {
   display: grid;
   gap: 24px;
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(var(--max-width), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 14px 4px 42px;
+  color: var(--muted);
+}
+
+.footer-intro,
+.footer-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-intro {
+  gap: 4px 12px;
+}
+
+.footer-name {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #f7f2ea;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+  background: var(--accent-soft);
+  border-color: rgba(32, 87, 73, 0.32);
+  color: var(--accent);
+}
+
+.footer-primary:hover,
+.footer-primary:focus-visible {
+  background: #17463b;
+  border-color: #17463b;
+  color: #ffffff;
 }
 
 .contact-grid {
@@ -817,6 +924,10 @@ body[data-lang="en"] [data-lang="ru"] {
     width: min(var(--max-width), calc(100% - 20px));
   }
 
+  main [id] {
+    scroll-margin-top: 136px;
+  }
+
   .topbar {
     padding: 10px;
   }
@@ -881,10 +992,22 @@ body[data-lang="en"] [data-lang="ru"] {
 
   .hero-title {
     max-width: none;
+    font-size: clamp(38px, 11vw, 58px);
   }
 
   .resume-toolbar {
     flex-wrap: wrap;
+  }
+
+  .card-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    width: min(var(--max-width), calc(100% - 20px));
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 28px;
   }
 }
 
@@ -931,5 +1054,17 @@ body[data-lang="en"] [data-lang="ru"] {
     box-shadow: none;
     background: #ffffff;
     break-inside: avoid;
+  }
+
+  .resume-entry {
+    break-inside: avoid;
+  }
+
+  .resume-main > .resume-panel {
+    break-before: auto;
+  }
+
+  a {
+    text-decoration: none;
   }
 }

@@ -44,6 +44,9 @@ struct CVWebsite {
             let updated = original.replacingOccurrences(
                 of: "src=\"/js/ignite-core.js\"",
                 with: "src=\"\(SitePaths.base)/js/ignite-core.js\""
+            ).replacingOccurrences(
+                of: "href=\"\(SitePaths.base)\(SitePaths.favicon)\"",
+                with: "href=\"\(SitePaths.favicon)\""
             )
 
             if updated != original {

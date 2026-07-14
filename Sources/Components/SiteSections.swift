@@ -32,10 +32,22 @@ struct TopBar: HTML {
                             .class("top-link")
                     }
                     ForEach(CVLanguage.allCases) { language in
+                        Tag("a") { language == .ru ? "Стек" : "Stack" }
+                            .attribute("href", "#stack")
+                            .attribute("data-lang", language.rawValue)
+                            .class("top-link")
+                    }
+                    ForEach(CVLanguage.allCases) { language in
                         Tag("a") { language == .ru ? "Контакты" : "Contacts" }
                             .attribute("href", "#contact")
                             .attribute("data-lang", language.rawValue)
                             .class("top-link")
+                    }
+                    ForEach(CVLanguage.allCases) { language in
+                        Tag("a") { language == .ru ? "Резюме" : "Resume" }
+                            .attribute("href", SitePaths.resume)
+                            .attribute("data-lang", language.rawValue)
+                            .class("top-link", "top-link-resume")
                     }
                 }
                 .class("top-nav")
@@ -64,8 +76,8 @@ struct HeroSection: HTML {
                 LocalizedTextBlock(
                     "h1",
                     content: .init(
-                        ru: "Найду слабые места в вашем iOS-проекте до production.",
-                        en: "Find weak spots in your iOS app before production."
+                        ru: "Разберу iOS-проект до production.",
+                        en: "I audit your iOS app before production."
                     ),
                     classNames: ["hero-title"]
                 )
@@ -84,6 +96,14 @@ struct HeroSection: HTML {
                     }
                     Link("Email", target: "mailto:aolyakhevich@icloud.com")
                         .class("cta-button", "cta-secondary")
+                    ForEach(CVLanguage.allCases) { language in
+                        Link(
+                            language == .ru ? "Открыть резюме" : "View resume",
+                            target: SitePaths.resume
+                        )
+                            .class("cta-button", "cta-ghost")
+                            .attribute("data-lang", language.rawValue)
+                    }
                 }
                 .class("hero-actions")
 
@@ -150,8 +170,8 @@ struct ServicesSection: HTML {
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Три формата, чтобы быстро снизить риск в iOS-продукте.",
-                        en: "Three ways to reduce risk in an iOS product quickly."
+                        ru: "Три формата, чтобы увереннее выпускать iOS-продукт.",
+                        en: "Three ways to ship an iOS product with more confidence."
                     ),
                     classNames: ["section-title"]
                 )
@@ -187,6 +207,19 @@ struct ProjectCardView: HTML {
 
             LocalizedVariantTextBlock("p", content: project.summary, classNames: ["card-summary"])
             LocalizedVariantListBlock(items: project.bullets, classNames: ["card-points"])
+
+            Tag("div") {
+                Tag("div") {
+                    LocalizedTextBlock("span", content: .init(ru: "Фокус", en: "Focus"), classNames: ["card-meta-label"])
+                    LocalizedTextBlock("strong", content: project.subtitle, classNames: ["card-meta-value"])
+                }
+                .class("card-meta-item")
+                Tag("div") {
+                    LocalizedTextBlock("span", content: .init(ru: "Что сделано", en: "What changed"), classNames: ["card-meta-label"])
+                    LocalizedVariantTextBlock("strong", content: project.summary, classNames: ["card-meta-value"])
+                }
+            }
+            .class("card-meta")
 
             Tag("div") {
                 ForEach(project.stack) { item in
@@ -406,6 +439,34 @@ struct ContactSection: HTML {
         }
         .class("contact-section")
         .attribute("id", "contact")
+    }
+}
+
+struct SiteFooter: HTML {
+    var body: some HTML {
+        Tag("footer") {
+            Tag("div") {
+                LocalizedTextBlock("span", content: .init(ru: "Александр Ляхевич", en: "Alexander Lyakhevich"), classNames: ["footer-name"])
+                LocalizedTextBlock("p", content: .init(ru: "iOS architecture, SwiftUI и аккуратная поставка.", en: "iOS architecture, SwiftUI, and careful delivery."), classNames: ["footer-copy"])
+            }
+            .class("footer-intro")
+
+            Tag("div") {
+                ForEach(CVLanguage.allCases) { language in
+                    Link(language == .ru ? "Обсудить аудит" : "Book an audit", target: "https://t.me/lyabowski")
+                        .target(.newWindow)
+                        .class("footer-link", "footer-primary")
+                        .attribute("data-lang", language.rawValue)
+                }
+                ForEach(CVLanguage.allCases) { language in
+                    Link(language == .ru ? "Резюме" : "Resume", target: SitePaths.resume)
+                        .class("footer-link")
+                        .attribute("data-lang", language.rawValue)
+                }
+            }
+            .class("footer-actions")
+        }
+        .class("site-footer")
     }
 }
 

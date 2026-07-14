@@ -23,7 +23,7 @@ struct LanguageToggle: HTML {
         }
         .class(className)
         .attribute("role", "group")
-        .attribute("aria-label", "Language")
+        .attribute("aria-label", "Language selector")
     }
 }
 
@@ -76,6 +76,7 @@ struct ToggleButton: HTML {
         .attribute("aria-pressed", "false")
         .attribute("data-label-ru", ruLabel ?? defaultLabel)
         .attribute("data-label-en", enLabel ?? defaultLabel)
+        .attribute("aria-label", value == "ru" ? "Русский" : "English")
         .class("state-button")
     }
 }

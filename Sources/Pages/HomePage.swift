@@ -19,6 +19,7 @@ struct HomePage: StaticPage {
                 ContactSection()
             }
             .class("page-stack")
+            SiteFooter()
         }
         .class("portfolio-page")
     }

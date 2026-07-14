@@ -52,25 +52,43 @@ struct ContactItem: Sendable {
     let href: String?
 }
 
-struct ProjectCard: Sendable {
+struct WorkIdentity: Sendable {
     let title: String
-    let subtitle: Localized<String>
     let period: String
+}
+
+enum WorkIdentities {
+    static let schedbook = WorkIdentity(title: "Schedbook", period: "2024 - 2026")
+    static let level = WorkIdentity(title: "Level / ProSport", period: "2024 - 2026")
+    static let wellmate = WorkIdentity(title: "Wellmate", period: "2024 - 2025")
+    static let acti = WorkIdentity(title: "Acti", period: "2024 - 2025")
+    static let newSchool = WorkIdentity(title: "Новая Школа / New School", period: "2023 - 2024")
+    static let sberbank = WorkIdentity(title: "Сбербанк / Sberbank", period: "2022 - 2023")
+}
+
+struct ProjectCard: Sendable {
+    let identity: WorkIdentity
+    let subtitle: Localized<String>
     let summary: Localized<Variant<String>>
     let bullets: Localized<Variant<[String]>>
     let stack: [String]
     let linkLabel: Localized<String>?
     let linkURL: String?
+
+    var title: String { identity.title }
+    var period: String { identity.period }
 }
 
 struct ExperienceEntry: Sendable {
-    let company: String
+    let identity: WorkIdentity
     let role: Localized<String>
-    let period: String
     let overview: Localized<Variant<String>>
     let highlights: Localized<Variant<[String]>>
     let linkLabel: Localized<String>?
     let linkURL: String?
+
+    var company: String { identity.title }
+    var period: String { identity.period }
 }
 
 struct SkillGroup: Sendable {
@@ -93,6 +111,8 @@ enum SitePaths {
     static let base = "/cv"
     static let resume = "\(base)/resume/"
     static let avatar = "\(base)/images/avatar.jpg?v=20260521"
+    static let favicon = "\(base)/images/favicon.svg"
+    static let siteURL = "https://antinlay.github.io\(base)/"
 }
 
 enum SiteContent {
@@ -203,12 +223,11 @@ enum SiteContent {
 
     static let projects: [ProjectCard] = [
         .init(
-            title: "Schedbook",
+            identity: WorkIdentities.schedbook,
             subtitle: .init(
                 ru: "Продуктовый iOS-клиент с нуля",
                 en: "Greenfield product iOS app"
             ),
-            period: "2024 - 2026",
             summary: .init(
                 ru: .init(
                     short: "Архитектура, навигация, auth и offline-first на SwiftData.",
@@ -248,12 +267,11 @@ enum SiteContent {
             linkURL: nil
         ),
         .init(
-            title: "Level / ProSport",
+            identity: WorkIdentities.level,
             subtitle: .init(
                 ru: "Социальный спорт и real-time chat",
                 en: "Sports social product with real-time chat"
             ),
-            period: "2024 - 2026",
             summary: .init(
                 ru: .init(
                     short: "Миграция чата на SwiftUI с сохранением UIKit-модулей.",
@@ -296,12 +314,11 @@ enum SiteContent {
             linkURL: "https://apps.apple.com/ru/app/%D1%83%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C-%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D0%B5%D1%82%D1%8C/id1577083239"
         ),
         .init(
-            title: "Wellmate",
+            identity: WorkIdentities.wellmate,
             subtitle: .init(
                 ru: "Wellness-продукт с модульным ядром",
                 en: "Wellness product with a modular core"
             ),
-            period: "2024 - 2025",
             summary: .init(
                 ru: .init(
                     short: "SwiftPM-модули и общие компоненты для ускорения поставки.",
@@ -344,12 +361,11 @@ enum SiteContent {
             linkURL: "https://apps.apple.com/ru/app/wellmate-ai-nutritionist/id6468350840"
         ),
         .init(
-            title: "Acti",
+            identity: WorkIdentities.acti,
             subtitle: .init(
                 ru: "KMP-интеграция и iOS-слой",
                 en: "KMP integration with a native iOS layer"
             ),
-            period: "2024 - 2025",
             summary: .init(
                 ru: .init(
                     short: "Интеграция shared/commonMain и iOS-клиента.",
@@ -395,9 +411,8 @@ enum SiteContent {
 
     static let experience: [ExperienceEntry] = [
         .init(
-            company: "Schedbook",
+            identity: WorkIdentities.schedbook,
             role: .init(ru: "iOS Developer, part-time", en: "iOS Developer, part-time"),
-            period: "2024 - 2026",
             overview: .init(
                 ru: .init(
                     short: "Greenfield-приложение с auth, навигацией и offline-first.",
@@ -436,9 +451,8 @@ enum SiteContent {
             linkURL: nil
         ),
         .init(
-            company: "Level / ProSport",
+            identity: WorkIdentities.level,
             role: .init(ru: "iOS Developer, part-time", en: "iOS Developer, part-time"),
-            period: "2024 - 2026",
             overview: .init(
                 ru: .init(
                     short: "SwiftUI-миграция и real-time chat внутри живого продукта.",
@@ -477,9 +491,8 @@ enum SiteContent {
             linkURL: "https://apps.apple.com/ru/app/%D1%83%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C-%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D0%B5%D1%82%D1%8C/id1577083239"
         ),
         .init(
-            company: "Wellmate",
+            identity: WorkIdentities.wellmate,
             role: .init(ru: "iOS Developer, part-time", en: "iOS Developer, part-time"),
-            period: "2024 - 2025",
             overview: .init(
                 ru: .init(
                     short: "Модульная база продукта на SwiftPM.",
@@ -518,9 +531,8 @@ enum SiteContent {
             linkURL: "https://apps.apple.com/ru/app/wellmate-ai-nutritionist/id6468350840"
         ),
         .init(
-            company: "Новая Школа / New School",
+            identity: WorkIdentities.newSchool,
             role: .init(ru: "iOS Developer", en: "iOS Developer"),
-            period: "2023 - 2024",
             overview: .init(
                 ru: .init(
                     short: "Фичи, мини-игры, аналитика и AI-диалоги.",
@@ -559,9 +571,8 @@ enum SiteContent {
             linkURL: "https://apps.apple.com/ru/developer/the-new-school-limited-liability-company/id1622694692"
         ),
         .init(
-            company: "Сбербанк / Sberbank",
+            identity: WorkIdentities.sberbank,
             role: .init(ru: "iOS Developer", en: "iOS Developer"),
-            period: "2022 - 2023",
             overview: .init(
                 ru: .init(
                     short: "Аналитика, design system и стабилизация продукта.",

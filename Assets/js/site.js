@@ -24,12 +24,24 @@
     function setLanguage(value) {
       if (!validLanguages.has(value)) return;
       body.dataset.lang = value;
-      localStorage.setItem("cv-lang", value);
+      document.documentElement.lang = value;
+      try {
+        localStorage.setItem("cv-lang", value);
+      } catch (_) {
+        // Private browsing or disabled storage should not block the page.
+      }
       updatePressed(value);
       updateToggleCopy();
     }
 
-    const lang = localStorage.getItem("cv-lang") || body.dataset.lang || "ru";
+    let savedLanguage = null;
+    try {
+      savedLanguage = localStorage.getItem("cv-lang");
+    } catch (_) {
+      savedLanguage = null;
+    }
+
+    const lang = savedLanguage || body.dataset.lang || "ru";
     setLanguage(validLanguages.has(lang) ? lang : "ru");
 
     document.querySelectorAll('[data-set="lang"]').forEach((button) => {
@@ -43,6 +55,36 @@
       saveButton.addEventListener("click", () => {
         window.print();
       });
+    }
+
+    const sections = [...document.querySelectorAll("main [id]")];
+    const navigationLinks = [...document.querySelectorAll(".top-link[href^='#']")];
+
+    function updateActiveSection(id) {
+      navigationLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    if ("IntersectionObserver" in window && sections.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visibleEntry = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visibleEntry) updateActiveSection(visibleEntry.target.id);
+        },
+        { rootMargin: "-18% 0px -68% 0px", threshold: [0, 0.25, 0.6] }
+      );
+
+      sections.forEach((section) => observer.observe(section));
     }
   }
 
