@@ -122,26 +122,26 @@ enum SiteContent {
             en: "Alexander Lyakhevich"
         ),
         role: .init(
-            ru: "iOS Architecture & SwiftUI Audit Consultant",
-            en: "iOS Architecture & SwiftUI Audit Consultant"
+            ru: "iOS Product Engineer · Swift / SwiftUI",
+            en: "iOS Product Engineer · Swift / SwiftUI"
         ),
         location: .init(
-            ru: "Александр Ляхевич. UTC+3, открыт к удаленным аудитам, спринтам и продуктовым командам.",
-            en: "Alexander Lyakhevich. UTC+3, open to remote audits, fix sprints, and product teams."
+            ru: "Открыт к удалённой работе в продуктовой команде.",
+            en: "Open to remote work on a product team."
         ),
         intro: .init(
             ru: .init(
-                short: "Нахожу и помогаю исправлять SwiftUI navigation/state/API баги до production: repo audit, risk report и план фиксов для Codex.",
-                full: "Нахожу и помогаю исправлять SwiftUI navigation/state/API баги до production: repo audit, архитектурный разбор, performance risks, risk report и план фиксов для Codex. Комфортно двигаюсь от сложного legacy до MVP и App Store delivery."
+                short: "Разрабатываю iOS-приложения с нуля и развиваю выпущенные продукты. Проектирую архитектуру, подключаю API, пишу тесты и готовлю релизы в App Store.",
+                full: "Разрабатываю iOS-приложения с нуля и развиваю выпущенные продукты. В Schedbook спроектировал архитектуру iOS-клиента, реализовал вход, подключил REST API и добавил офлайн-кеш на SwiftData. В Level / ProSport внедрял SwiftUI в существующий UIKit-продукт и разрабатывал чат на WebSocket."
             ),
             en: .init(
-                short: "I find and help fix SwiftUI navigation, state, and API bugs before production: repo audit, risk report, and Codex-ready fix plan.",
-                full: "I find and help fix SwiftUI navigation, state, and API bugs before production: repo audit, architecture review, performance risks, risk report, and Codex-ready fix plan. Comfortable from complex legacy codebases to MVP and App Store delivery."
+                short: "I build iOS apps from scratch and develop live products. My work covers architecture, APIs, testing, and App Store releases.",
+                full: "I build iOS apps from scratch and develop live products. For Schedbook, I designed the iOS architecture, implemented sign-in, integrated a REST API, and built an offline cache with SwiftData. At Level / ProSport, I introduced SwiftUI into an existing UIKit app and built WebSocket chat."
             )
         ),
         statement: .init(
-            ru: "Приглашайте на аудит iOS-проекта, performance sprint или MVP, где важны архитектура, скорость и аккуратная поставка.",
-            en: "Bring me in for an iOS project audit, performance sprint, or MVP where architecture, velocity, and careful delivery matter."
+            ru: "Использую AI-инструменты для разбора кода и подготовки изменений, проверяю результат ревью и тестами.",
+            en: "I use AI tools to explore code and prepare changes, then verify the results through review and tests."
         )
     )
 
@@ -155,40 +155,40 @@ enum SiteContent {
     static let services: [ServiceOffering] = [
         .init(
             title: .init(
-                ru: "iOS Architecture Audit",
-                en: "iOS Architecture Audit"
+                ru: "Аудит архитектуры iOS",
+                en: "iOS Architecture Review"
             ),
             summary: .init(
-                ru: "Быстрый разбор проекта для команд, которым нужно понять архитектурные, navigation/state и API-риски до релиза.",
+                ru: "Проверю архитектуру, навигацию, управление состоянием и работу с API перед релизом.",
                 en: "A focused project review for teams that need to see architecture, navigation/state, and API risks before release."
             ),
             points: .init(
                 ru: [
-                    "Repo review: структура, модули, состояние, навигация",
-                    "Async/await, API layer, payload mapping и рискованные сценарии",
-                    "Risk report и план фиксов для Codex и команды"
+                    "Структура проекта, модули, состояние и навигация",
+                    "Асинхронный код, сетевой слой и преобразование данных API",
+                    "Отчёт о рисках и план исправлений"
                 ],
                 en: [
                     "Repo review: structure, modules, state, and navigation",
                     "Async/await, API layer, payload mapping, and risky flows",
-                    "Risk report and Codex-ready fix plan for the team"
+                    "Risk report and remediation plan"
                 ]
             )
         ),
         .init(
             title: .init(
-                ru: "SwiftUI Performance Fix Sprint",
-                en: "SwiftUI Performance Fix Sprint"
+                ru: "Оптимизация SwiftUI",
+                en: "SwiftUI Performance"
             ),
             summary: .init(
-                ru: "Спринт для сложных экранов, где лаги, тяжелые списки, календари или лишние обновления мешают продукту.",
+                ru: "Выясню, почему тормозят списки, календари и другие сложные экраны.",
                 en: "A sprint for complex screens where lag, heavy lists, calendars, or unnecessary updates slow the product down."
             ),
             points: .init(
                 ru: [
                     "Профилирование и поиск реальных узких мест",
                     "Оптимизация списков, календарей и сложных SwiftUI экранов",
-                    "Измеримые фиксы и PR-ready изменения"
+                    "Исправления с замерами до и после"
                 ],
                 en: [
                     "Profiling and finding real bottlenecks",
@@ -199,18 +199,18 @@ enum SiteContent {
         ),
         .init(
             title: .init(
-                ru: "AI-assisted iOS MVP Build",
-                en: "AI-assisted iOS MVP Build"
+                ru: "Разработка первой версии iOS-приложения",
+                en: "iOS MVP Development"
             ),
             summary: .init(
-                ru: "MVP для стартапов, которым нужна быстрая, но поддерживаемая iOS-поставка с понятным workflow.",
+                ru: "Разработаю первую версию приложения и подготовлю её к тестированию и публикации.",
                 en: "An MVP track for startups that need fast, maintainable iOS delivery with a clear workflow."
             ),
             points: .init(
                 ru: [
-                    "SwiftUI MVP, API integration и базовая архитектура",
-                    "TestFlight, App Store readiness и release checklist",
-                    "AI-assisted delivery workflow без потери инженерного контроля"
+                    "Интерфейс на SwiftUI, интеграция API и архитектура приложения",
+                    "Сборка в TestFlight и подготовка к публикации в App Store",
+                    "Использование ИИ с проверкой кода и тестами"
                 ],
                 en: [
                     "SwiftUI MVP, API integration, and baseline architecture",
@@ -230,8 +230,8 @@ enum SiteContent {
             ),
             summary: .init(
                 ru: .init(
-                    short: "Архитектура, навигация, auth и offline-first на SwiftData.",
-                    full: "Собрал greenfield-приложение с архитектурой, навигацией, auth-потоком, Keychain, refresh-токенами и offline-first слоем на SwiftData."
+                    short: "Разработал iOS-клиент с нуля на SwiftUI и SwiftData.",
+                    full: "Разработал iOS-клиент на SwiftUI. Спроектировал навигацию, реализовал вход и восстановление сессии, добавил локальный кеш на SwiftData."
                 ),
                 en: .init(
                     short: "Architecture, navigation, auth, and offline-first with SwiftData.",
@@ -246,8 +246,8 @@ enum SiteContent {
                     ],
                     full: [
                         "Модульная инфраструктура и общие компоненты для ускорения фич",
-                        "Auth: email/password + Sign in with Apple, Keychain, refresh-токены",
-                        "REST + multipart, доменная обработка ошибок и восстановление сессии"
+                        "Вход по почте и через Apple, хранение токенов в Keychain и обновление сессии",
+                        "Интеграция с REST API, multipart-запросы и обработка ошибок"
                     ]
                 ),
                 en: .init(
@@ -269,13 +269,13 @@ enum SiteContent {
         .init(
             identity: WorkIdentities.level,
             subtitle: .init(
-                ru: "Социальный спорт и real-time chat",
-                en: "Sports social product with real-time chat"
+                ru: "Социальная сеть для спорта",
+                en: "Social app for sports"
             ),
             summary: .init(
                 ru: .init(
                     short: "Миграция чата на SwiftUI с сохранением UIKit-модулей.",
-                    full: "Пошагово перевожу продукт на SwiftUI: чат, вложения, статусы и WebSocket lifecycle при сохранении рабочих UIKit-модулей."
+                    full: "Переводил чат действующего приложения на SwiftUI, сохранив модули на UIKit. Работал со статусами, вложениями и переподключением WebSocket."
                 ),
                 en: .init(
                     short: "Migrating chat to SwiftUI while keeping UIKit modules stable.",
@@ -285,11 +285,11 @@ enum SiteContent {
             bullets: .init(
                 ru: .init(
                     short: [
-                        "Real-time WebSocket и подготовка sync с watchOS",
+                        "Чат на WebSocket и подготовка синхронизации с Apple Watch",
                         "Модульные сервисы Auth / Chat / Media / Feed"
                     ],
                     full: [
-                        "Real-time WebSocket: статусы, вложения, reconnect и lifecycle",
+                        "Статусы и вложения в чате, управление соединением и переподключение WebSocket",
                         "Подготовка синхронизации с Apple Watch",
                         "Модульные сервисы Auth / Chat / Media / Feed / Event"
                     ]
@@ -316,8 +316,8 @@ enum SiteContent {
         .init(
             identity: WorkIdentities.wellmate,
             subtitle: .init(
-                ru: "Wellness-продукт с модульным ядром",
-                en: "Wellness product with a modular core"
+                ru: "Приложение о питании",
+                en: "Nutrition app"
             ),
             summary: .init(
                 ru: .init(
@@ -333,23 +333,23 @@ enum SiteContent {
                 ru: .init(
                     short: [
                         "Масштабируемая структура проекта",
-                        "Быстрее добавлять фичи без хаоса в shared code"
+                        "Общие компоненты для новых экранов"
                     ],
                     full: [
                         "Масштабируемая структура проекта на SwiftPM",
                         "Повторно используемые UI- и domain-компоненты",
-                        "Ускорение feature delivery без хаоса в shared code"
+                        "Новые сценарии без переработки общих компонентов"
                     ]
                 ),
                 en: .init(
                     short: [
                         "Scalable project structure",
-                        "Faster feature work without shared-code chaos"
+                        "Shared components for new screens"
                     ],
                     full: [
                         "Scalable project structure built on SwiftPM",
                         "Reusable UI and domain components",
-                        "Faster feature delivery without shared-code chaos"
+                        "New flows without reworking shared components"
                     ]
                 )
             ),
@@ -369,7 +369,7 @@ enum SiteContent {
             summary: .init(
                 ru: .init(
                     short: "Интеграция shared/commonMain и iOS-клиента.",
-                    full: "Связал iOS-клиент с KMP shared/commonMain, KMP-NativeCoroutines и navigation/state-подходом через Decompose + Koin."
+                    full: "Подключил общую логику Kotlin Multiplatform к iOS-клиенту. Использовал KMP-NativeCoroutines, Decompose и Koin для интеграции асинхронного кода, состояния и навигации."
                 ),
                 en: .init(
                     short: "Integrated shared/commonMain with the iOS client.",
@@ -385,7 +385,7 @@ enum SiteContent {
                     full: [
                         "KMP-NativeCoroutines и слой интеграции на iOS",
                         "Decompose + Koin для состояния и навигации",
-                        "Сведение shared-логики и iOS UX без потери нативности"
+                        "Общая логика Kotlin Multiplatform и нативный интерфейс iOS"
                     ]
                 ),
                 en: .init(
@@ -415,8 +415,8 @@ enum SiteContent {
             role: .init(ru: "iOS Developer, part-time", en: "iOS Developer, part-time"),
             overview: .init(
                 ru: .init(
-                    short: "Greenfield-приложение с auth, навигацией и offline-first.",
-                    full: "Greenfield-приложение: архитектура, навигация, auth/refresh, общие компоненты и offline-first слой."
+                    short: "Разработка iOS-клиента с нуля: вход, навигация и офлайн-кеш.",
+                    full: "Спроектировал архитектуру и навигацию iOS-клиента, реализовал вход, обновление сессии и локальный кеш."
                 ),
                 en: .init(
                     short: "Greenfield app with auth, navigation, and offline-first architecture.",
@@ -427,12 +427,12 @@ enum SiteContent {
                 ru: .init(
                     short: [
                         "SwiftData и синхронизация UI с локальным кешем",
-                        "Критичные сценарии покрыты базовыми unit/UI тестами"
+                        "Написал модульные и UI-тесты для ключевых сценариев"
                     ],
                     full: [
                         "SwiftData и синхронизация UI с локальным кешем",
                         "REST/multipart и доменная обработка ошибок",
-                        "Критичные сценарии покрыты unit/UI тестами"
+                        "Написал модульные и UI-тесты для ключевых сценариев"
                     ]
                 ),
                 en: .init(
@@ -455,8 +455,8 @@ enum SiteContent {
             role: .init(ru: "iOS Developer, part-time", en: "iOS Developer, part-time"),
             overview: .init(
                 ru: .init(
-                    short: "SwiftUI-миграция и real-time chat внутри живого продукта.",
-                    full: "SwiftUI-миграция и real-time chat внутри живого продукта с сохранением рабочей UIKit-экосистемы."
+                    short: "Миграция чата действующего приложения на SwiftUI.",
+                    full: "Переводил чат на SwiftUI поэтапно, сохраняя совместимость с существующими экранами на UIKit."
                 ),
                 en: .init(
                     short: "SwiftUI migration and real-time chat in a live product.",
@@ -466,12 +466,12 @@ enum SiteContent {
             highlights: .init(
                 ru: .init(
                     short: [
-                        "WebSocket, вложения, статусы и lifecycle соединения",
-                        "Подготовка sync с Apple Watch"
+                        "Вложения, статусы и управление соединением WebSocket",
+                        "Подготовка синхронизации с Apple Watch"
                     ],
                     full: [
-                        "WebSocket, вложения, статусы и lifecycle соединения",
-                        "Модульные сервисы и подготовка sync с Apple Watch",
+                        "Вложения, статусы и управление соединением WebSocket",
+                        "Модульные сервисы и подготовка синхронизации с Apple Watch",
                         "Релизная стабильность в App Store"
                     ]
                 ),
@@ -496,7 +496,7 @@ enum SiteContent {
             overview: .init(
                 ru: .init(
                     short: "Модульная база продукта на SwiftPM.",
-                    full: "Модульная база продукта на SwiftPM с общими компонентами и ускорением feature delivery."
+                    full: "Разделил код на модули SwiftPM и выделил общие компоненты для новых функций."
                 ),
                 en: .init(
                     short: "SwiftPM-based modular product foundation.",
@@ -506,12 +506,12 @@ enum SiteContent {
             highlights: .init(
                 ru: .init(
                     short: [
-                        "Архитектурные границы и reusable-компоненты",
+                        "Разделение кода на модули и общие компоненты",
                         "Снижение регрессий при росте продукта"
                     ],
                     full: [
-                        "Архитектурные границы и reusable-компоненты",
-                        "Быстрее запускать новые сценарии без переписывания shared-слоя",
+                        "Разделение кода на модули и общие компоненты",
+                        "Добавление сценариев без переработки общего кода",
                         "Снижение регрессий при росте продукта"
                     ]
                 ),
@@ -535,8 +535,8 @@ enum SiteContent {
             role: .init(ru: "iOS Developer", en: "iOS Developer"),
             overview: .init(
                 ru: .init(
-                    short: "Фичи, мини-игры, аналитика и AI-диалоги.",
-                    full: "Фичи, мини-игры, аналитика, мониторинг и AI-диалоги в образовательном продукте."
+                    short: "Мини-игры, диалоги с ИИ и аналитика.",
+                    full: "Разрабатывал мини-игры и диалоги с ИИ для образовательного приложения, работал с аналитикой и мониторингом."
                 ),
                 en: .init(
                     short: "Features, mini-games, analytics, and AI dialogs.",
@@ -547,12 +547,12 @@ enum SiteContent {
                 ru: .init(
                     short: [
                         "Улучшение UX и стабильности",
-                        "Подготовка релизов и hot-fix при необходимости"
+                        "Подготовка релизов в App Store и выпуск срочных исправлений"
                     ],
                     full: [
                         "Улучшение UX и стабильности продукта",
                         "Частичная миграция на SwiftUI",
-                        "Подготовка релизов и hot-fix при необходимости"
+                        "Подготовка релизов в App Store и выпуск срочных исправлений"
                     ]
                 ),
                 en: .init(
@@ -575,8 +575,8 @@ enum SiteContent {
             role: .init(ru: "iOS Developer", en: "iOS Developer"),
             overview: .init(
                 ru: .init(
-                    short: "Аналитика, design system и стабилизация продукта.",
-                    full: "ClickStream-аналитика, внедрение Flamingo design system и стабилизация пользовательских сценариев."
+                    short: "Аналитика, дизайн-система и тестирование.",
+                    full: "Внедрял дизайн-систему Flamingo, работал с аналитикой ClickStream и тестировал ключевые сценарии."
                 ),
                 en: .init(
                     short: "Analytics, design system rollout, and product stabilization.",
@@ -587,12 +587,12 @@ enum SiteContent {
                 ru: .init(
                     short: [
                         "XCTest на ключевые сценарии",
-                        "Снижение техдолга и поддерживаемость"
+                        "Сокращение технического долга"
                     ],
                     full: [
                         "XCTest на ключевые пользовательские сценарии",
                         "Контроль качества аналитических событий",
-                        "Снижение техдолга и поддерживаемость"
+                        "Сокращение технического долга"
                     ]
                 ),
                 en: .init(
@@ -614,20 +614,20 @@ enum SiteContent {
 
     static let skills: [SkillGroup] = [
         .init(
-            title: .init(ru: "Product engineering", en: "Product engineering"),
+            title: .init(ru: "Разработка iOS", en: "Product engineering"),
             items: ["Swift", "SwiftUI", "UIKit", "Swift Concurrency", "AI-assisted delivery"]
         ),
         .init(
-            title: .init(ru: "Networking & data", en: "Networking & data"),
+            title: .init(ru: "Сеть и данные", en: "Networking & data"),
             items: ["REST", "WebSocket", "Multipart", "API payload audit", "SwiftData", "Offline-first"]
         ),
         .init(
-            title: .init(ru: "Architecture & audit", en: "Architecture & audit"),
+            title: .init(ru: "Архитектура", en: "Architecture & audit"),
             items: ["Repo audit", "SwiftUI state/navigation", "Feature modules", "Coordinators", "DI", "Risk reports"]
         ),
         .init(
-            title: .init(ru: "Delivery", en: "Delivery"),
-            items: ["Performance profiling", "Codex-ready fix plans", "App Store release", "TestFlight", "XCTest", "Swift Testing"]
+            title: .init(ru: "Тестирование и релизы", en: "Delivery"),
+            items: ["Performance profiling", "App Store release", "TestFlight", "XCTest", "Swift Testing"]
         )
     ]
 
@@ -635,21 +635,21 @@ enum SiteContent {
         .init(
             title: .init(ru: "Школа 21", en: "School 21"),
             note: .init(
-                ru: "Swift Bootcamp, командные проекты и code review.",
+                ru: "Интенсив по Swift, командные проекты и ревью кода.",
                 en: "Swift Bootcamp, team projects, and code review."
             )
         ),
         .init(
             title: .init(ru: "Essential Developer", en: "Essential Developer"),
             note: .init(
-                ru: "iOS Architect, clean architecture и тестирование.",
+                ru: "Курс iOS Architect: чистая архитектура и тестирование.",
                 en: "iOS Architect, clean architecture, and testing."
             )
         ),
         .init(
             title: .init(ru: "WB Техношкола", en: "WB Tech School"),
             note: .init(
-                ru: "Практика инженерной разработки и продуктовой доставки.",
+                ru: "Практика разработки и выпуска продукта.",
                 en: "Hands-on engineering practice and product delivery."
             )
         ),

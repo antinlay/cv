@@ -14,36 +14,6 @@ struct TopBar: HTML {
 
                 Tag("nav") {
                     ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Услуги" : "Services" }
-                            .attribute("href", "#services")
-                            .attribute("data-lang", language.rawValue)
-                            .class("top-link")
-                    }
-                    ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Кейсы" : "Work" }
-                            .attribute("href", "#work")
-                            .attribute("data-lang", language.rawValue)
-                            .class("top-link")
-                    }
-                    ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Опыт" : "Experience" }
-                            .attribute("href", "#experience")
-                            .attribute("data-lang", language.rawValue)
-                            .class("top-link")
-                    }
-                    ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Стек" : "Stack" }
-                            .attribute("href", "#stack")
-                            .attribute("data-lang", language.rawValue)
-                            .class("top-link")
-                    }
-                    ForEach(CVLanguage.allCases) { language in
-                        Tag("a") { language == .ru ? "Контакты" : "Contacts" }
-                            .attribute("href", "#contact")
-                            .attribute("data-lang", language.rawValue)
-                            .class("top-link")
-                    }
-                    ForEach(CVLanguage.allCases) { language in
                         Tag("a") { language == .ru ? "Резюме" : "Resume" }
                             .attribute("href", SitePaths.resume)
                             .attribute("data-lang", language.rawValue)
@@ -64,30 +34,57 @@ struct TopBar: HTML {
     }
 }
 
+struct SectionNavigation: HTML {
+    var body: some HTML {
+        Tag("nav") {
+            ForEach(CVLanguage.allCases) { language in
+                Tag("a") { language == .ru ? "Услуги" : "Services" }
+                    .attribute("href", "#services")
+                    .attribute("data-lang", language.rawValue)
+                    .class("top-link")
+            }
+            ForEach(CVLanguage.allCases) { language in
+                Tag("a") { language == .ru ? "Кейсы" : "Work" }
+                    .attribute("href", "#work")
+                    .attribute("data-lang", language.rawValue)
+                    .class("top-link")
+            }
+            ForEach(CVLanguage.allCases) { language in
+                Tag("a") { language == .ru ? "Опыт" : "Experience" }
+                    .attribute("href", "#experience")
+                    .attribute("data-lang", language.rawValue)
+                    .class("top-link")
+            }
+            ForEach(CVLanguage.allCases) { language in
+                Tag("a") { language == .ru ? "Стек" : "Stack" }
+                    .attribute("href", "#stack")
+                    .attribute("data-lang", language.rawValue)
+                    .class("top-link")
+            }
+            ForEach(CVLanguage.allCases) { language in
+                Tag("a") { language == .ru ? "Контакты" : "Contacts" }
+                    .attribute("href", "#contact")
+                    .attribute("data-lang", language.rawValue)
+                    .class("top-link")
+            }
+        }
+        .class("section-nav")
+        .attribute("aria-label", "Portfolio sections")
+    }
+}
+
 struct HeroSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                Tag("span") {
-                    "iOS / SwiftUI / Architecture Audit"
-                }
-                .class("eyebrow")
-
-                LocalizedTextBlock(
-                    "h1",
-                    content: .init(
-                        ru: "Разберу iOS-проект до production.",
-                        en: "I audit your iOS app before production."
-                    ),
-                    classNames: ["hero-title"]
-                )
+                LocalizedTextBlock("h1", content: SiteContent.profile.name, classNames: ["hero-title"])
                 LocalizedTextBlock("p", content: SiteContent.profile.role, classNames: ["hero-role"])
                 LocalizedVariantTextBlock("p", content: SiteContent.profile.intro, classNames: ["hero-copy"])
 
                 Tag("div") {
                     ForEach(CVLanguage.allCases) { language in
                         Link(
-                            language == .ru ? "Обсудить аудит" : "Book an audit",
+                            language == .ru ? "Написать в Telegram" : "Message on Telegram",
                             target: "https://t.me/lyabowski"
                         )
                         .target(.newWindow)
@@ -119,28 +116,6 @@ struct HeroSection: HTML {
                         .class("hero-photo")
                 }
                 .class("hero-photo-shell")
-
-                Tag("div") {
-                    Tag("div") {
-                        LocalizedTextBlock("span", content: .init(ru: "Аудит", en: "Audit"), classNames: ["stat-label"])
-                        Tag("strong") { "Repo / state / API" }
-                            .class("stat-value")
-                    }
-                    .class("stat-card")
-                    Tag("div") {
-                        LocalizedTextBlock("span", content: .init(ru: "Фокус", en: "Focus"), classNames: ["stat-label"])
-                        Tag("strong") { "SwiftUI navigation" }
-                            .class("stat-value")
-                    }
-                    .class("stat-card")
-                    Tag("div") {
-                        LocalizedTextBlock("span", content: .init(ru: "Результат", en: "Output"), classNames: ["stat-label"])
-                        Tag("strong") { "Fix plan / sprint" }
-                            .class("stat-value")
-                    }
-                    .class("stat-card")
-                }
-                .class("hero-stats")
             }
             .class("hero-visual-column")
         }
@@ -166,12 +141,11 @@ struct ServicesSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Услуги", en: "Services"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Три формата, чтобы увереннее выпускать iOS-продукт.",
-                        en: "Three ways to ship an iOS product with more confidence."
+                        ru: "Проектная работа",
+                        en: "Project work"
                     ),
                     classNames: ["section-title"]
                 )
@@ -209,19 +183,6 @@ struct ProjectCardView: HTML {
             LocalizedVariantListBlock(items: project.bullets, classNames: ["card-points"])
 
             Tag("div") {
-                Tag("div") {
-                    LocalizedTextBlock("span", content: .init(ru: "Фокус", en: "Focus"), classNames: ["card-meta-label"])
-                    LocalizedTextBlock("strong", content: project.subtitle, classNames: ["card-meta-value"])
-                }
-                .class("card-meta-item")
-                Tag("div") {
-                    LocalizedTextBlock("span", content: .init(ru: "Что сделано", en: "What changed"), classNames: ["card-meta-label"])
-                    LocalizedVariantTextBlock("strong", content: project.summary, classNames: ["card-meta-value"])
-                }
-            }
-            .class("card-meta")
-
-            Tag("div") {
                 ForEach(project.stack) { item in
                     Tag("span") { item }
                         .class("tech-pill")
@@ -246,12 +207,11 @@ struct SelectedWorkSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Кейсы", en: "Selected work"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Продукты, где я отвечал за структуру, стабильность и скорость поставки.",
-                        en: "Products where I owned structure, stability, and shipping velocity."
+                        ru: "Избранные проекты",
+                        en: "Selected projects"
                     ),
                     classNames: ["section-title"]
                 )
@@ -304,12 +264,11 @@ struct ExperienceTimelineSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Опыт", en: "Experience"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "От greenfield-продуктов до migration-heavy команд с живым production.",
-                        en: "From greenfield products to migration-heavy teams running live production."
+                        ru: "Опыт работы",
+                        en: "Work experience"
                     ),
                     classNames: ["section-title"]
                 )
@@ -332,12 +291,11 @@ struct StackSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Стек", en: "Capabilities"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Инженерный стек без декоративного шума.",
-                        en: "Engineering depth without decorative fluff."
+                        ru: "Технологии",
+                        en: "Technologies"
                     ),
                     classNames: ["section-title"]
                 )
@@ -370,12 +328,11 @@ struct EducationSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Образование", en: "Education"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Курсы и практики, которые усилили архитектурное мышление.",
-                        en: "Courses and hands-on programs that sharpened architectural thinking."
+                        ru: "Образование",
+                        en: "Education"
                     ),
                     classNames: ["section-title"]
                 )
@@ -401,12 +358,11 @@ struct ContactSection: HTML {
     var body: some HTML {
         Tag("section") {
             Tag("div") {
-                LocalizedTextBlock("span", content: .init(ru: "Контакты", en: "Contacts"), classNames: ["section-eyebrow"])
                 LocalizedTextBlock(
                     "h2",
                     content: .init(
-                        ru: "Напишите, если нужно разобрать iOS-проект, исправить сложные места или довести MVP до релиза.",
-                        en: "Bring me in for an audit, fix sprint, or MVP where architecture, velocity, and careful execution matter."
+                        ru: "Связаться со мной",
+                        en: "Get in touch"
                     ),
                     classNames: ["section-title"]
                 )
@@ -447,13 +403,13 @@ struct SiteFooter: HTML {
         Tag("footer") {
             Tag("div") {
                 LocalizedTextBlock("span", content: .init(ru: "Александр Ляхевич", en: "Alexander Lyakhevich"), classNames: ["footer-name"])
-                LocalizedTextBlock("p", content: .init(ru: "iOS architecture, SwiftUI и аккуратная поставка.", en: "iOS architecture, SwiftUI, and careful delivery."), classNames: ["footer-copy"])
+                LocalizedTextBlock("p", content: SiteContent.profile.role, classNames: ["footer-copy"])
             }
             .class("footer-intro")
 
             Tag("div") {
                 ForEach(CVLanguage.allCases) { language in
-                    Link(language == .ru ? "Обсудить аудит" : "Book an audit", target: "https://t.me/lyabowski")
+                    Link(language == .ru ? "Написать в Telegram" : "Message on Telegram", target: "https://t.me/lyabowski")
                         .target(.newWindow)
                         .class("footer-link", "footer-primary")
                         .attribute("data-lang", language.rawValue)
@@ -573,7 +529,7 @@ struct ResumeMainColumn: HTML {
             .class("resume-panel")
 
             Tag("section") {
-                LocalizedTextBlock("h2", content: .init(ru: "Selected work", en: "Selected work"), classNames: ["resume-section-title"])
+                LocalizedTextBlock("h2", content: .init(ru: "Избранные проекты", en: "Selected projects"), classNames: ["resume-section-title"])
                 ForEach(SiteContent.projects) { project in
                     Tag("article") {
                         Tag("div") {

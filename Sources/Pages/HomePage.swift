@@ -9,16 +9,20 @@ struct HomePage: StaticPage {
     var body: some HTML {
         Tag("div") {
             TopBar()
-            Tag("main") {
-                HeroSection()
-                ServicesSection()
-                SelectedWorkSection()
-                ExperienceTimelineSection()
-                StackSection()
-                EducationSection()
-                ContactSection()
+            Tag("div") {
+                SectionNavigation()
+                Tag("main") {
+                    HeroSection()
+                    SelectedWorkSection()
+                    ExperienceTimelineSection()
+                    StackSection()
+                    EducationSection()
+                    ServicesSection()
+                    ContactSection()
+                }
+                .class("page-stack")
             }
-            .class("page-stack")
+            .class("documentation-layout")
             SiteFooter()
         }
         .class("portfolio-page")
