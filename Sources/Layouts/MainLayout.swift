@@ -7,7 +7,6 @@ struct MainLayout: Layout {
 
         PlainDocument {
             Head {
-                MetaTag(name: "theme-color", content: "#f3ede3")
                 MetaTag(.openGraphImage, content: SitePaths.siteURL + "images/avatar.jpg")
                 MetaTag(.twitterImage, content: SitePaths.siteURL + "images/avatar.jpg")
                 MetaTag(name: "twitter:creator", content: "@lyabowski")
